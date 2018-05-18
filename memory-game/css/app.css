@@ -1,0 +1,310 @@
+html {
+     box-sizing: border-box;
+}
+ *, *::before, *::after {
+     box-sizing: inherit;
+}
+ html, body {
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+ body {
+     background: #ffffff url('../img/sky.jpg');
+    /* Background pattern from Subtle Patterns */
+     font-family: 'Coda', cursive;
+}
+
+h1,
+h2,
+h3,
+h6{
+  text-align: center;
+}
+
+div {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+ .container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+     padding: 0 10px !important;
+}
+ h1 {
+     font-family: 'Open Sans', sans-serif;
+     font-weight: 300;
+}
+
+p{
+  text-align: center;
+}
+/* * Styles for the deck of cards */
+ .deck {
+     max-width: 660px;
+     max-height: 680px;
+     width: 100%;
+     background: linear-gradient(160deg, #6686C7 0%, #4F76DF 100%);
+     padding: 6px;
+     border-radius: 10px;
+     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+     margin: 0 0 3em;
+}
+ .deck .card {
+     height: 50px;
+     width: 50px;
+     margin: 4px;
+     background: #FFD90F;
+     font-size: 0;
+     color: #ffffff;
+     border-radius: 8px;
+     cursor: pointer;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+ .deck .card.open {
+     background: transparent;
+     cursor: default;
+     transform: rotateY(360deg);
+     transition: transform 0.33s linear;
+     transform-style: preserve-3d;
+     pointer-events: none;
+     border: 1px solid #f9da31;
+    border-radius: 8px;
+     border-color: #f9da31;
+    box-shadow: 0 0 10px #9ecaed;
+}
+ .deck img{
+     visibility: hidden;
+}
+ .open img {
+     visibility: visible;
+      border-radius: 8px;
+}
+ .not-clickable{
+     pointer-events: none;
+}
+ .deck .card.show {
+     font-size: 33px;
+}
+ .deck .card.match {
+     cursor: default;
+     background: #02ccba;
+     font-size: 33px;
+
+}
+/* * Styles for the Score Panel */
+ .score-panel {
+     text-align: left;
+     max-width: 300px;
+     margin-bottom: 10px;
+}
+ .score-panel .stars {
+     margin: 0;
+     padding-left: 10px;
+     display: inline-block;
+     margin: 0 5px 0 0;
+}
+ .timer{
+     padding-left: 20px;
+}
+.stars li {
+     list-style: none;
+     display: inline-block;
+}
+ .score-panel .restart {
+     float: right;
+     cursor: pointer;
+     padding: 0 20px;
+}
+/* The Modal (background) */
+ .modal {
+     display: none;
+    /* Hidden by default */
+     position: fixed;
+    /* Stay in place */
+     z-index: 1;
+    /* Sit on top */
+     left: 0;
+     top: 0;
+     width: 100%;
+    /* Full width */
+     height: 100%;
+    /* Full height */
+     overflow: auto;
+    /* Enable scroll if needed */
+     background-color: rgb(0,0,0);
+    /* Fallback color */
+     background-color: rgba(0,0,0,0.4);
+    /* Black w/ opacity */
+
+}
+/* Modal Content/Box */
+ .modal-content {
+     background-color: #fefefe;
+     margin: 0 auto;
+    /* 15% from the top and centered */
+     padding: 20px;
+     border: 1px solid #888;
+     width: 80% !important;
+     top: 10%;
+    /* Could be more or less, depending on screen size */
+}
+/* The Close Button */
+ .close {
+     color: #aaa;
+     float: right;
+     font-size: 32px;
+     font-weight: bold;
+}
+ .close:hover, .close:focus {
+     color: black;
+     text-decoration: none;
+     cursor: pointer;
+}
+
+.stars {
+list-style-type: none !important;
+display: inline-block;
+padding-left: 0;
+}
+
+.playAgain {
+  background-color: #FFD90F;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.shake {
+  transform: rotateY(180deg);
+  animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+
+
+
+
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(1px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(1px, 0, 0);
+  }
+}
+
+@media only screen and (min-width: 310px) {
+   /* For mobiles: */
+ .deck {
+   padding: 20px 6px;
+ }
+    .deck .card {
+      height: 65px;
+      width: 65px;
+      margin: 2px;
+    }
+}
+
+@media only screen and (min-width: 375px) {
+   /* For mobiles: */
+ .deck {
+   padding: 20px 8px;
+ }
+    .deck .card {
+      height: 75px;
+      width: 75px;
+      margin: 2px;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+   /* For mobiles: */
+ .deck {
+   padding: 20px 12px;
+ }
+    .deck .card {
+      height: 78px;
+      width: 78px;
+      margin: 2px;
+    }
+}
+
+@media only screen and (min-width: 445px) {
+   /* For mobiles: */
+ .deck {
+   padding: 20px 20px;
+ }
+    .deck .card {
+      height: 85px;
+      width: 85px;
+      margin: 2px;
+    }
+}
+
+@media only screen and (min-width: 490px) {
+   /* For mobiles: */
+ .deck {
+   padding: 20px 20px;
+ }
+    .deck .card {
+      height: 90px;
+      width: 90px;
+      margin: 4px;
+    }
+}
+
+@media only screen and (min-width: 540px) {
+   /* For mobiles: */
+ .deck {
+   padding: 20px 20px;
+ }
+    .deck .card {
+      height: 100px;
+      width: 100px;
+      margin: 4px;
+    }
+}
+
+@media only screen and (min-width: 760px) {
+   /* For mobiles: */
+ .deck {
+   padding: 10px 20px;
+ }
+    .deck .card {
+      height: 110px;
+      width: 110px;
+      margin: 6px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .deck {
+      padding: 10px 20px;
+    }
+       .deck .card {
+         height: 125px;
+         width: 125px;
+         margin: 10px;
+       }
+   }
